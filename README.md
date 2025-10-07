@@ -17,6 +17,61 @@
 
 ## English
 
+## 📊 Recommender System Architecture
+
+```mermaid
+graph TB
+    A[User-Item Interactions] --> B{Approach}
+    B -->|Collaborative| C[Matrix Factorization]
+    B -->|Content-Based| D[Item Features]
+    B -->|Hybrid| E[Combined]
+    C --> F[SVD]
+    C --> G[ALS]
+    C --> H[Neural CF]
+    D --> I[TF-IDF]
+    D --> J[Embeddings]
+    E --> K[Weighted Hybrid]
+    F --> L[User/Item Latent Factors]
+    G --> L
+    H --> L
+    I --> M[Similarity Matrix]
+    J --> M
+    K --> N[Final Recommendations]
+    L --> N
+    M --> N
+    N --> O[Top-N Items]
+    
+    style A fill:#e1f5ff
+    style O fill:#c8e6c9
+    style B fill:#fff9c4
+```
+
+## 🔄 Recommendation Pipeline
+
+```mermaid
+sequenceDiagram
+    participant User
+    participant API
+    participant Recommender
+    participant Cache
+    participant Ranker
+    
+    User->>API: Request recommendations
+    API->>Cache: Check cache
+    alt Cache Hit
+        Cache-->>API: Cached recommendations
+    else Cache Miss
+        API->>Recommender: Generate candidates
+        Recommender-->>API: Top-K candidates
+        API->>Ranker: Re-rank by business rules
+        Ranker-->>API: Final recommendations
+        API->>Cache: Store recommendations
+    end
+    API-->>User: Personalized recommendations
+```
+
+
+
 ### 📋 Overview
 
 Comprehensive recommendation system implementing multiple algorithms including collaborative filtering (matrix factorization, SVD, ALS), content-based filtering, neural collaborative filtering, and hybrid methods. Features include cold start handling, real-time recommendations API, A/B testing framework, and evaluation metrics (NDCG, MAP, MRR).
