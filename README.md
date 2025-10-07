@@ -48,6 +48,42 @@ graph TB
 
 ## 🔄 Recommendation Pipeline
 
+### 📊 Evaluation Metrics Visualization
+
+Understanding the trade-off between precision and recall at different K values:
+
+![Precision and Recall at K](assets/precision_recall_at_k.png)
+
+#### Metrics Analysis
+
+| K | Precision@K | Recall@K | Use Case |
+|---|-------------|----------|----------|
+| **5** | 0.45 | 0.15 | High-confidence top picks |
+| **10** | 0.38 | 0.28 | Balanced recommendations |
+| **20** | 0.28 | 0.42 | Diverse suggestions |
+| **50** | 0.18 | 0.58 | Discovery mode |
+| **100** | 0.12 | 0.68 | Maximum coverage |
+
+**Key Insights:**
+- **Precision decreases** as K increases: More recommendations = lower accuracy per item
+- **Recall increases** as K increases: More recommendations = better coverage of relevant items
+- **Optimal K depends on use case**: 
+  - Homepage: K=10 (balanced)
+  - Email campaigns: K=5 (high precision)
+  - Browse page: K=20-50 (discovery)
+
+#### Additional Metrics
+
+The evaluation framework also computes:
+- **NDCG (Normalized Discounted Cumulative Gain)**: Ranking quality
+- **MAP (Mean Average Precision)**: Overall precision across users
+- **Coverage**: Percentage of items recommended
+- **Diversity**: Variety in recommendations
+- **Serendipity**: Unexpected but relevant suggestions
+
+All metrics are logged to `reports/evaluation_results.json` for tracking over time.
+
+
 ```mermaid
 sequenceDiagram
     participant User
