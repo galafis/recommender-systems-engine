@@ -83,7 +83,6 @@ The evaluation framework also computes:
 
 All metrics are logged to `reports/evaluation_results.json` for tracking over time.
 
-
 ```mermaid
 sequenceDiagram
     participant User
@@ -105,8 +104,6 @@ sequenceDiagram
     end
     API-->>User: Personalized recommendations
 ```
-
-
 
 ### 📋 Overview
 
@@ -175,7 +172,6 @@ Sistema de recomendação abrangente implementando múltiplos algoritmos incluin
 
 **Gabriel Demetrios Lafis**
 - GitHub: [@galafis](https://github.com/galafis)
-
 
 ## 💻 Detailed Code Examples
 
@@ -623,9 +619,6 @@ This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) 
 
 ## 📊 Project Statistics
 
-![GitHub stars](https://img.shields.io/github/stars/galafis/recommender-systems-engine?style=social)
-![GitHub forks](https://img.shields.io/github/forks/galafis/recommender-systems-engine?style=social)
-![GitHub watchers](https://img.shields.io/github/watchers/galafis/recommender-systems-engine?style=social)
 ![GitHub issues](https://img.shields.io/github/issues/galafis/recommender-systems-engine)
 ![GitHub pull requests](https://img.shields.io/github/issues-pr/galafis/recommender-systems-engine)
 ![GitHub last commit](https://img.shields.io/github/last-commit/galafis/recommender-systems-engine)
